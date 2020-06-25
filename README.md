@@ -1,44 +1,41 @@
 <p align="center">
   <img src="http://joemilbach.com/images/icn/icon-64x64.png" width="64"><br/>
 </p>
-<h1>Custom Gatsby starter</h1>
+<h1 align="center">JoeMilbach.com</h1>
 
-Starter template based on [Gatsby's default starter](https://github.com/gatsbyjs/gatsby-starter-default). Updated to include [React Bootstrap](https://react-bootstrap.github.io/) & [React Font Awesome](react-fontawesome).
+[JoeMilbach.com](http://joemilbach.com/) template using [Gatsby](https://www.gatsbyjs.org/), [React Bootstrap](https://react-bootstrap.github.io/) & [React Font Awesome](react-fontawesome).
 
 ## Quick start
 
-1.  **Create a Gatsby site.**
+1.  **Developing**
 
-    Gatsby CLI to create a new site.
+    Running at `http://localhost:8000`
 
-    ```shell
-    gatsby new my-default-starter https://github.com/joemilbach/gatsby-react-starter
-    ```
-
-1.  **Start developing.**
+    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
     ```shell
     gatsby develop
     ```
 
-1.  **Start editing!**
+    Debugging Commands: `gatsby info` and `gatsby clean`
 
-    Your site is now running at `http://localhost:8000`!
+2.  **Production**
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+    - Build Options: `--no-uglify` Build site without uglifying JS bundles (for debugging)
 
-## Gatsby files
+    - Serve Options: `-o` Open the site in your (default) browser for you and `-p` Set port. Defaults to 9000
 
-1.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+    ```shell
+    gatsby build
+    gatsby serve
+    ```
 
-2.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+## Reference docs
 
-3.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+- [React](https://reactjs.org/) & [React Resources](https://reactresources.com/)
 
-4.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+- [Gatsby](https://www.gatsbyjs.org/)
 
-## Gatsby docs
+- [React Bootstrap](https://react-bootstrap.github.io/) & [React Font Awesome](react-fontawesome)
 
-- For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).
-
-- To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).
+- [React Font Awesome](react-fontawesome)
