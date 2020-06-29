@@ -25,7 +25,18 @@ module.exports = {
         background_color: `#fff`,
         theme_color: `#74b709`,
         display: `minimal-ui`,
-        icon: `src/images/icon-310x310.png`, // This path is relative to the root of the site.
+        icon: `src/images/icn/icon-512x512.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Titillium Web`,
+            variants: [`300`,`300italic`,`700`,`700italic`,`900`,`200`]
+          },
+        ],
       },
     },
   ],

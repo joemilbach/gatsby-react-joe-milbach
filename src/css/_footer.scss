@@ -1,0 +1,33 @@
+// Footer Styles
+#site-footer {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  bottom: .5rem;
+  left: 0;
+}
+.copyright {
+  text-align: center;
+  margin: 0;
+  font-size: 85%;
+  text-shadow: 0 0 2px rgba(255,255,255,.35), 1px 1px 3px rgba(255,255,255,.85), 2px 2px 5px rgba(255,255,255,1);
+}
+
+// Mobile portrait only
+//@include media-breakpoint-down(xs) { }
+
+// Tablet portrait and up
+//@include media-breakpoint-up(sm) { }
+
+// Tablet landscape and up
+//@include media-breakpoint-up(md) { }
+
+// Desktop and up
+@include media-breakpoint-up(lg) {
+  #site-footer {
+    bottom: 1rem;
+  }
+}
+
+// Widescreen only
+//@include media-breakpoint-up(xl) { }

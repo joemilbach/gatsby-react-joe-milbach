@@ -1,0 +1,303 @@
+// Header Styles
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1020;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  background-color: transparent;
+  transition: background-color .05s ease-out, box-shadow .05s ease-out;
+}
+.shrink {
+  &#site-header {
+    background-color: $white;
+    box-shadow: 0 0 3rem -.5rem rgba($gray-900, .125);
+    transition: background-color .05s ease-in, box-shadow .05s ease-in;
+  }
+}
+#site-logo {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  margin: .25rem 0 0;
+  strong {
+    color: $success;
+    font-size: 1.125rem;
+    line-height: 1.2;
+    font-weight: 400;
+    padding: .25rem .45rem;
+  }
+  small {
+    color: $primary;
+  }
+  i {
+    width: 2px;
+    height: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    background-color: $primary;
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      height: 2px;
+      left: 0;
+      width: .35rem;
+      position: absolute;
+      background-color: $primary;
+    }
+    &:before {
+      top: 0;
+    }
+    &:after {
+      bottom: 0;
+    }
+    + i {
+      left: auto;
+      right: 1px;
+      &:before,
+      &:after {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+}
+#xs-nav-control {
+  color: $primary;
+  cursor: pointer;
+  position: relative;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  border: 0 solid transparent;
+  background-color: transparent;
+  float: right;
+  padding: 0;
+}
+.icn-menu {
+  display: inline-block;
+  position: relative;
+  width: .6rem;
+  margin: 1px 3px 1px 0;
+  > i {
+    width: 100%;
+    background: $success;
+    display: block;
+    height: 2px;
+    margin: 3px 2px 0 1px;
+    &:first-child {
+      margin-top: 0;
+    }
+    + i:not(:last-child) {
+      width: 70%;
+    }
+  }
+}
+#xs-nav-close {
+  margin: 1.5rem 1.5rem 0 0;
+  align-self: flex-end;
+  span {
+    &:before,
+    &:after {
+      background: $white;
+    }
+  }
+  label {
+    color: $white;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  body.nav-open {
+    overflow: hidden;
+  }
+  #site-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 2010;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    overflow-y: auto;
+    background-color: rgba(255,255,255,0);
+    transition: background-color .3s ease-in-out;
+    transform: translateX(100%) translate3d(0, 0, 0);
+    .nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 80%;
+      max-width: 22rem;
+      flex-direction: column;
+      background-color: $primary;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+      transform: translateX(100%) translate3d(0, 0, 0);
+      transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
+    }
+    &.open {
+      transform: translateX(0);
+      background-color: rgba(255,255,255,.8);
+      .nav {
+        box-shadow: 0 0 2rem rgba(0,0,0,.25);
+        transform: translateX(0);
+        transition: transform .15s ease-in-out, box-shadow .15s ease-in-out;
+      }
+    }
+    .nav-link {
+      color: $white;
+      font-size: 1.25rem;
+      padding: .75rem 1.5rem;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Mobile portrait only
+//@include media-breakpoint-down(xs) { }
+
+// Tablet portrait and up
+//@include media-breakpoint-up(sm) { }
+
+// Tablet landscape and up
+@include media-breakpoint-up(md) {
+  #site-header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  #site-logo {
+    margin: 0;
+    padding: .25rem .75rem .25rem .375rem;
+    strong {
+      color: $success;
+    }
+    small {
+      color: $gray-500;
+    }
+    i {
+      background-color: $gray-400;
+      &:before,
+      &:after {
+        background-color: $gray-400;
+      }
+    }
+  }
+}
+
+// Desktop and up
+@include media-breakpoint-up(lg) {
+  #site-header {
+    margin-top: .875rem;
+  }
+  .shrink {
+    &#site-header {
+      margin-top: 0;
+    }
+  }
+  #site-logo {
+    padding: 0 1.75rem .625rem 1.5625rem;
+    margin: 0;
+    strong {
+      font-size: 1.6875rem;
+      font-weight: 200;
+      padding: .25rem 0;
+    }
+    small {
+      clear: both;
+      text-align: right;
+      font-weight: 400;
+      font-size: 1rem;
+      margin-top: -.375rem;
+      transition: color .1s ease-in-out;
+    }
+    i {
+      transform: translate3d(0, 0, 0);
+      transition: all .1s ease-in-out;
+      + i {
+        left: auto;
+        right: 1px;
+        &:before,
+        &:after {
+          left: auto;
+          right: 0;
+          transition: background-color .1s ease-in-out;
+        }
+      }
+    }
+    &:hover {
+      small {
+        color: $primary;
+        transition-duration: .07s;
+      }
+      i {
+        transition-duration: .07s;
+        transform-origin: 50% 50%;
+        transform: scale(.85) translateX(.75rem);
+        background-color: $gray-200;
+        &:before,
+        &:after {
+          background-color: $gray-200;
+        }
+        + i {
+          transition-duration: .07s;
+          transform: scale(.85) translateX(-.75rem);
+        }
+      }
+    }
+  }
+  .shrink {
+    #site-logo {
+      padding: .25rem .75rem .25rem .375rem;
+      strong {
+        font-size: 1.125rem;
+        font-weight: 400;
+        padding: .25rem .45rem;
+        display: inline-block !important;
+      }
+      small {
+        clear: none;
+        font-size: 0.875em;
+        display: inline-block !important;
+      }
+    }
+  }
+  #xs-nav-close {
+    display: none;
+    visibility: hidden;
+  }
+  #site-nav {
+    .nav-link {
+      position: relative;
+      overflow: hidden;
+      font-size: 1.5rem;
+
+      &.active {
+        &:after {
+          display: block;
+          content: "";
+          width: 100%;
+          height: 1px;
+          background-color: $primary;
+        }
+      }
+    }
+  }
+}
+
+// Widescreen only
+@include media-breakpoint-up(xl) {
+  #site-logo {
+    strong {
+      color: $success;
+      font-size: 2.125rem;
+    }
+  }
+}

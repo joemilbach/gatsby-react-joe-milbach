@@ -1,24 +1,23 @@
 import React from "react"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Container from "react-bootstrap/Container"
-
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 const AboutPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <Container as="section" fluid className="mt-4">
-      <h1>About - Main page title [H1]</h1>
-      <h2>Subheading [h2]</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In hac habitasse platea dictumst vestibulum.  {<Link to="/services/">Vestibulum sed arcu non odio</Link>} euismod lacinia at quis risus. Malesuada proin libero nunc consequat.</p>
-      <p>Quis viverra nibh cras pulvinar mattis nunc sed blandit libero. Amet volutpat consequat mauris nunc congue nisi. Eu ultrices vitae auctor eu augue ut. Vel orci porta non pulvinar neque laoreet suspendisse interdum. Enim nec dui nunc mattis enim ut tellus elementum. Id venenatis a condimentum vitae sapien.</p>
-      <h3>Tertiary Heading [H3]</h3>
-      <ul>
-        <li>Nisi vitae suscipit tellus mauris.</li>
-        <li>Feugiat in fermentum posuere urna nec.</li>
-        <li>Purus viverra accumsan in nisl nisi scelerisque eu ultrices.</li>
-      </ul>
+  <Layout page="about">
+    <SEO title="About" bodyClass="sub about" />
+
+    <Container id="site-main" as="main" fluid="lg" role="main">
+      <Row>
+        <Col sm="7" md="10" lg={{ span: 6, offset: 6 }} className="main-content mt-lg-5">
+          <h1>Little About Me</h1>
+          <p>I am a web designer and developer from Cedar Rapids, IA. I am experienced with websites, web apps and mobile apps. I keep my code neat and love finding ways to optimize my projects. I work best with a team but am self motivated if I need to go it alone. I am always willing to jump in and learn new things.</p>
+          <h2>What I know</h2>
+          <p>I have worked with many different CMS's from Wordpress and Hubspot to ones that are home grown. My current toolset I use are PHP, JavaScript, jQuery, SCSS / SASS and many others I use to bring ideas to life.</p>
+        </Col>
+      </Row>
     </Container>
   </Layout>
 )

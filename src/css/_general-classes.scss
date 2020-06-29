@@ -1,0 +1,480 @@
+/*****************
+  General Styles
+*****************/
+
+// Basic Elements
+input,
+button,
+a {
+  &:focus {
+    outline: 0;
+    outline: 0 auto -webkit-focus-ring-color;
+  }
+}
+h1 {
+  color: $success;
+  margin-bottom: 1rem;
+}
+p,
+ul,
+ol {
+  font-size: 1.125rem;
+}
+
+// Grid
+.container-fluid {
+  padding-right: $grid-gutter-width;
+  padding-left: $grid-gutter-width;
+  &:not(#site-header) {
+    max-width: 100rem;
+  }
+}
+
+// Buttons
+.close-btn {
+  width: 2rem;
+  border: 0 solid transparent;
+  background-color: transparent;
+  padding: 0;
+  position: relative;
+  span {
+    width: inherit;
+    text-align: center;
+    &:before,
+    &:after {
+      position: absolute;
+      content: '';
+      height: 2px;
+      width: inherit;
+      background: $primary;
+      left: 0;
+      transition: all .15s ease-in;
+    }
+    &:before {
+      top: 50%;
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      bottom: 50%;
+      transform: rotate(-45deg);
+    }
+  }
+  strong {
+    color: $primary;
+    font-size: .875rem;
+    font-weight: 300;
+    line-height: 2.5;
+    background-color: transparent;
+    transition: all .3s ease-in;
+    opacity: 0;
+    cursor: pointer;
+  }
+  &:hover {
+    strong {
+      opacity: 1;
+    }
+    span:before,
+    span:after {
+      transform: rotate(0);
+    }
+    span:before {
+      top: 0;
+    }
+    span:after {
+      bottom: 0;
+    }
+  }
+}
+
+// Hero
+.hero-content {
+  padding: 25vh 0 0 12.5vw;
+  h1 {
+    font-size: 8vw;
+    margin-bottom: .125rem;
+    transition: font-size .15s ease-in-out;
+    + p {
+      color: $secondary;
+      transition: font-size .15s ease-in-out;
+    }
+  }
+}
+
+// Card
+.card-feature-img {
+  &:not(.col-grid) {
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 62.5% 0 0;
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 0 2rem -1rem rgba($gray-900,.5);
+    .img-fluid {
+      position: absolute !important;
+      top: 0;
+      right: 0;
+      left: 0;
+      display: block;
+    }
+  }
+  svg {
+    visibility: hidden;
+    display: none;
+  }
+}
+.card-hover {
+  .card-container {
+    overflow: hidden;
+  }
+  .card-hover-item {
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 5px;
+      top: 80%;
+      left: 3.25rem;
+      right: 3.25rem;
+      z-index: -1;
+      background-color: rgba($gray-900, .125);
+      border-radius: 15rem 15rem 2rem 2rem;
+      box-shadow: 0 0 1.875rem 2px rgba($gray-900, .25), 0 0 2rem 0 rgba($gray-900, .25);
+    }
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -1px;
+      top: 50%;
+      left: $grid-gutter-width;
+      right: $grid-gutter-width;
+      z-index: -1;
+      border-bottom: 1px solid $gray-200;
+      background-color: $white;
+    }
+    &:hover {
+      .card-title {
+        color: $primary;
+      }
+      svg {
+        padding: .65rem;
+        width: 4.25rem;
+        height: 4.25rem;
+        border: 2px solid $primary;
+        transition: all .07s ease-out;
+      }
+    }
+  }
+  svg {
+    fill: $primary;
+    background-color: $white;
+    padding: 0;
+    width: 0;
+    height: 0;
+    z-index: 10;
+    visibility: visible;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 0 solid $primary;
+    border-radius: 100rem;
+    transform-origin: center center;
+    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    transition: all .1s ease-out;
+  }
+  .card-feature-img {
+    padding-bottom: 2.25rem;
+    margin-bottom: -2.25rem;
+    transform: translateY(0) translate3d(0, 0, 0);
+    transition: all .1s ease-out;
+  }
+}
+.card-hover-item {
+  position: relative;
+  z-index: 5;
+}
+.touchevents {
+  .card-hover {
+    .card-hover-item {
+      svg {
+        padding: .65rem;
+        width: 4.25rem;
+        height: 4.25rem;
+        margin-top: -1.125rem;
+        border: 2px solid $primary;
+      }
+    }
+  }
+}
+
+// Modal
+.modal {
+  .close-btn {
+    z-index: 10;
+    align-self: flex-end;
+    margin-bottom: -2.125rem;
+  }
+  .card-content {
+    padding: ($grid-gutter-width * .5);
+    background-color: $white;
+  }
+  .card-feature-img {
+    overflow: hidden;
+    max-height: 80vh;
+  }
+}
+.modal-dialog {
+  margin: ($grid-gutter-width * .5);
+}
+.modal-content {
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 0;
+}
+.modal-body {
+  padding: 0;
+  z-index: 5;
+}
+.modal-backdrop {
+  background-color: $white;
+  &.show {
+    opacity: .75;
+  }
+}
+.modal-open {
+  #site-header,
+  #site-main,
+  #site-footer {
+    filter: blur(4px);
+  }
+}
+
+/***********
+  Home Page
+************/
+
+.home {
+  background: #fff url("../images/Desktop-BG.jpg") no-repeat fixed center;
+  background-size: cover;
+  background-position: 30% center;
+}
+
+/***********
+  Subpages
+************/
+
+.sub {
+  padding: 0 0 2rem;
+  #site-main {
+    padding-top: 4.5rem;
+    position: relative;
+  }
+  .main-content {
+    border-radius: 2rem;
+    background-color: rgba(255, 255, 255,.8);
+    box-shadow: 0 0 4rem rgba(255, 255, 255, 0.65), 0 0 4rem rgba(255, 255, 255, 0.65), 0 0 4rem rgba(255, 255, 255, 0.65), 0 0 5rem rgba(255, 255, 255, 0.65);
+  }
+}
+.about {
+  .container-lg:after {
+    position: relative;
+    display: block;
+    z-index: -1;
+    content: "";
+    width: 100%;
+    padding: 55% 0 0;
+    background: #fff url("../images/Joe-Milbach-Head-Shot-2020.jpg") no-repeat center bottom;
+    background-size: 65% auto;
+  }
+}
+.work {
+  position: relative;
+  padding-bottom: 0;
+  #site-main {
+    overflow: hidden;
+    padding-bottom: 5.25rem;
+    margin-bottom: -5.25rem;
+    &:after {
+      position: fixed;
+      display: block;
+      z-index: -1;
+      content: "";
+      width: 125%;
+      height: 100vh;
+      padding: 0;
+      bottom: -35%;
+      right: -25%;
+      background: #fff url("../images/Code-BG.jpg") no-repeat center center;
+      background-size: cover;
+      transform: rotate(-25deg);
+    }
+  }
+  #site-footer {
+    padding: 2rem 0;
+    position: relative;
+  }
+}
+.contact:not(.nav-link) {
+  background: #fff url("../images/Coffee-BG.jpg") no-repeat fixed center;
+  background-size: 160% auto;
+  background-position: center bottom;
+}
+
+// Mobile portrait only
+//@include media-breakpoint-down(xs) { }
+
+// Tablet portrait and up
+@include media-breakpoint-up(sm) {
+  .card-feature-img {
+    &.col-grid {
+      background-color: $white;
+    }
+  }
+  .modal-dialog {
+    margin: 5vh auto 0;
+  }
+  .about {
+    .container-lg:after {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      top: 0;
+      padding: 0;
+      background-position: left bottom;
+    }
+  }
+}
+
+// Tablet landscape and up
+//@include media-breakpoint-up(md) {  }
+
+// Mobile landscape
+@media (max-width: map-get($grid-breakpoints, md)) and (min-width: map-get($grid-breakpoints, sm)) and (orientation:landscape) {
+  .hero-content {
+    padding: 15vh 0 0 27vw;
+    h1 {
+      font-size: 7vw;
+    }
+  }
+  .about {
+    .container-lg:after {
+      background-position: 152% -70%;
+      background-size: 72% auto;
+    }
+  }
+}
+
+// Mobile Portrait
+@media (max-width: map-get($grid-breakpoints, md)) and (min-width: map-get($grid-breakpoints, sm)) and (orientation:portrait) {
+  .about {
+    .container-lg:after {
+      background-position: center bottom;
+      background-size: 80% auto;
+    }
+  }
+}
+
+// Desktop and up
+@include media-breakpoint-up(lg) {
+  p,
+  ul,
+  ol {
+    font-size: 1.25rem;
+  }
+  .hero-content {
+    h1 {
+      font-size: 5vw;
+      margin-bottom: .25rem;
+      + p {
+        font-size: 1.25rem;
+      }
+    }
+  }
+  .card-hover {
+    margin: 0 (-$grid-gutter-width);
+    .card-hover-item {
+      cursor: zoom-in;
+      &:hover {
+        .card-feature-img {
+          transform: translateY(-2.25rem);
+          transition: all .07s ease-out;
+        }
+      }
+    }
+    .card-feature-img {
+      padding-bottom: 2.25rem;
+      margin-bottom: -2.25rem;
+      transform: translateY(0) translate3d(0, 0, 0);
+      transition: all .1s ease-out;
+      will-change: transform;
+    }
+  }
+  .card-hover-item {
+    padding-left: $grid-gutter-width;
+    padding-right: $grid-gutter-width;
+  }
+  .card-feature-img {
+    &.col-grid {
+      background-color: transparent;
+    }
+  }
+  .modal {
+    .card-content {
+      padding: $grid-gutter-width;
+    }
+  }
+  .sub {
+    #site-main {
+      padding-top: 6.75rem;
+    }
+  }
+  .about {
+    .container-lg:after {
+      background-position: -10% bottom;
+      background-size: 60% auto;
+    }
+  }
+  .contact {
+    background-size: cover;
+    background-position: 30% center;
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, lg)) and (orientation:landscape) {
+  .hero-content {
+    padding: 30vh 0 0 27vw;
+  }
+}
+
+// Widescreen and up
+@include media-breakpoint-up(xl) {
+  .hero-content {
+    h1 {
+      + p {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .about {
+    .container-lg:after {
+      background-size: 55% auto;
+      background-position: -5% bottom;
+    }
+  }
+}
+
+// High Resolution
+@media (min-width: 1600px) {
+  .about {
+    .container-lg:after {
+      background-size: 60% auto;
+      background-position: -10% bottom;
+    }
+  }
+}

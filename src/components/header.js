@@ -1,32 +1,81 @@
+import React, { Component } from "react"
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 
-const Header = ({ siteTitle }) => (
-  <Container as="header" fluid id="site-nav" role="banner">
-    <div className="d-flex align-items-center">
-      <Link to="/" className="d-flex flex-shrink-1 flex-grow-0">
-        <img className="img-fluid" src="https://via.placeholder.com/145x75/007bff/fff.png?text=Logo" alt="logo" />
-      </Link>
+export default class Header extends Component {
+  constructor(props) {
+    super(props)
 
-      <Nav as="nav" className="flex-grow-1" role="navigation">
-        <Link to="/" className="home nav-link">Home</Link>
-        <Link to="/about/" className="about nav-link">About</Link>
-        <Link to="/services/" className="services nav-link">Services</Link>
-        <Link to="/contact/" className="contact nav-link">Contact</Link>
-      </Nav>
-    </div>
-  </Container>
-)
+    this.state = {
+      prevScrollpos: window.pageYOffset,
+      shrink: false
+    };
+  }
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+  componentDidMount() {
+    window.addEventListener("scroll", this.fixedHeader)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.fixedHeader)
+  }
+
+  fixedHeader = () => {
+    const scrollTop = window.pageYOffset;
+    const affixHeader = document.getElementById('site-header')
+    let affixTop = affixHeader.offsetTop;
+
+    // Firefox bug when at bottom of page
+    if(affixTop < 0) {
+      affixTop = 0;
+    }
+
+    if(scrollTop > affixTop + 10) {
+      affixHeader.classList.add('shrink');
+
+    } else {
+      affixHeader.classList.remove('shrink');
+    }
+  }
+
+  handleScroll = () => {
+    const { prevScrollpos } = this.state
+    const currentScrollPos = window.pageYOffset
+    const shrink = prevScrollpos < currentScrollPos + 10
+
+    this.setState({
+      prevScrollpos: currentScrollPos,
+      shrink
+    });
+  };
+
+  render() {
+    return (
+      <Container as="header" fluid id="site-header" className={((this.state.shrink) ? `shrink` : '')} role="banner">
+        <div className="d-flex justify-content-between align-items-center">
+          <Link to="/" id="site-logo">
+            <strong className="d-lg-block">J<span className="d-none d-md-inline">oe </span>M<span className="d-none d-md-inline">ilbach</span></strong>
+            <small className="d-none d-md-inline d-lg-block">Web Developer</small>
+            <i></i><i></i>
+          </Link>
+
+          <button id="xs-nav-control" className="d-lg-none" type="button" aria-label="Toggle navigation">M<span className="icn-menu"><i></i><i></i><i></i></span>NU</button>
+
+          <div id="site-nav">
+            <Nav as="nav" activeKey="" role="navigation">
+              <button type="button" id="xs-nav-close" className="close-btn" aria-label="Close navigation">
+                <span>
+                  <strong>Close</strong>
+                </span>
+              </button>
+              <Nav.Link href="/about/" eventKey="about">About</Nav.Link>
+              <Nav.Link href="/work/" eventKey="work">Work</Nav.Link>
+              <Nav.Link href="/contact/" eventKey="contact">Contact</Nav.Link>
+            </Nav>
+          </div>
+        </div>
+      </Container>
+    )
+  }
 }
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header

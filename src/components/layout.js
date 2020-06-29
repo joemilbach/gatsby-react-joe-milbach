@@ -7,28 +7,19 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
-import "../css/custom.scss"
+import "../css/styles.scss"
 import Container from "react-bootstrap/Container"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+const Layout = ({ children, page }) => {
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <main>{children}</main>
-      <Container as="footer" className="mt-4 text-center" role="contentinfo">
-        © {new Date().getFullYear()} Joe Milbach. All rights reserved.
+      <Header currentPage={page} />
+
+      <>{children}</>
+
+      <Container as="footer" id="site-footer" role="contentinfo">
+        <p className="copyright">© {new Date().getFullYear()} Joe Milbach. All rights reserved.</p>
       </Container>
     </>
   )

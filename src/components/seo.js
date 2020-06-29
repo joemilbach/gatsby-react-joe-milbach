@@ -8,9 +8,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql} from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ bodyClass, description, lang, meta, title }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -27,10 +27,20 @@ function SEO({ description, lang, meta, title }) {
 
   const metaDescription = description || site.siteMetadata.description
 
+  const checkTouchDevice = () => {
+    return 'ontouchstart' in document.documentElement;
+  }
+
+  const deviceType = checkTouchDevice() === false ? `no-touchevents` : `touchevents`
+
   return (
     <Helmet
       htmlAttributes={{
+        class: deviceType,
         lang,
+      }}
+      bodyAttributes={{
+        class: bodyClass,
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
@@ -79,6 +89,7 @@ SEO.defaultProps = {
 }
 
 SEO.propTypes = {
+  bodyClass: PropTypes.string.isRequired,
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
