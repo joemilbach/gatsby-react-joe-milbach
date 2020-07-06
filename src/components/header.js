@@ -47,8 +47,18 @@ export default class Header extends Component {
     this.setState({
       prevScrollpos: currentScrollPos,
       shrink
-    });
-  };
+    })
+  }
+
+  mobileNavOpen = () => {
+    document.getElementById('site-nav').classList.add('open')
+    document.body.classList.add('nav-open')
+  }
+
+  mobileNavClose = () => {
+    document.getElementById('site-nav').classList.remove('open')
+    document.body.classList.remove('nav-open')
+  }
 
   render() {
     return (
@@ -60,11 +70,11 @@ export default class Header extends Component {
             <i></i><i></i>
           </Link>
 
-          <button id="xs-nav-control" className="d-lg-none" type="button" aria-label="Toggle navigation">M<span className="icn-menu"><i></i><i></i><i></i></span>NU</button>
+          <button id="xs-nav-control" className="d-md-none" type="button" onClick={this.mobileNavOpen} aria-label="Toggle navigation">M<span className="icn-menu"><i></i><i></i><i></i></span>NU</button>
 
           <div id="site-nav">
             <Nav as="nav" activeKey="" role="navigation">
-              <button type="button" id="xs-nav-close" className="close-btn" aria-label="Close navigation">
+              <button type="button" id="xs-nav-close" className="close-btn" onClick={this.mobileNavClose} aria-label="Close navigation">
                 <span>
                   <strong>Close</strong>
                 </span>

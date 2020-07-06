@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   z-index: 1020;
-  padding-top: .5rem;
+  padding-top: 1rem;
   padding-bottom: .5rem;
   background-color: transparent;
   transition: background-color .05s ease-out, box-shadow .05s ease-out;
@@ -106,7 +106,7 @@
       background: $white;
     }
   }
-  label {
+  strong {
     color: $white;
   }
 }
