@@ -34,7 +34,7 @@ class ContactForm  extends Component {
     } else {
       event.preventDefault()
 
-      const apiBase = 'http://joemilbach.com/api.php'
+      const apiBase = "http://joemilbach.com/api.php"
       let apiQuery = `${apiBase}?email=${this.state.email}&message=${this.state.message}&name=${this.state.name}`
 
       fetch(apiQuery)

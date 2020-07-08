@@ -18,11 +18,11 @@ const ContactPage = () => (
         <Col lg="6" xl={{ span: 5, offset: 1}} className="main-content pt-sm-2 pt-lg-4 pt-xl-5">
           <h1>Get ahold of Me</h1>
           <p className="mb-2">Interested in reaching me? Fill out the form or use the links below.</p>
-            <ul className="list-inline">
-              <li className="list-inline-item mr-4"><a href="mailto:joemilbach@gmail.com"><EnvelopeFill className="h2" /><span className="sr-only">Email me</span></a></li>
-              <li className="list-inline-item mr-4"><a href="tel:15073164658"><TelephoneFill className="h2" /><span className="sr-only">Call me</span></a></li>
-              <li className="list-inline-item mr-4"><a target="_blank" rel="noreferrer" href="https://www.facebook.com/joemilbach"><Facebook  className="h2" /><span className="sr-only">Find me on Facebook</span></a></li>
-              <li className="list-inline-item"><a target="_blank" rel="noreferrer" href="http://www.linkedin.com/in/joemilbach"><LinkedIn className="h2" /><span className="sr-only">Connect with me on LinkedIn</span></a></li>
+          <ul className="list-inline">
+            <li className="list-inline-item mr-4"><a href="mailto:joemilbach@gmail.com"><EnvelopeFill className="h2" /><span className="sr-only">Email me</span></a></li>
+            <li className="list-inline-item mr-4"><a href="tel:15073164658"><TelephoneFill className="h2" /><span className="sr-only">Call me</span></a></li>
+            <li className="list-inline-item mr-4"><a target="_blank" rel="noreferrer" href="https://www.facebook.com/joemilbach"><Facebook  className="h2" /><span className="sr-only">Find me on Facebook</span></a></li>
+            <li className="list-inline-item"><a target="_blank" rel="noreferrer" href="http://www.linkedin.com/in/joemilbach"><LinkedIn className="h2" /><span className="sr-only">Connect with me on LinkedIn</span></a></li>
           </ul>
           <ContactForm />
         </Col>

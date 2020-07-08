@@ -28,10 +28,12 @@ function SEO({ bodyClass, description, lang, meta, title }) {
   const metaDescription = description || site.siteMetadata.description
 
   const checkTouchDevice = () => {
-    return 'ontouchstart' in document.documentElement;
+    if (typeof document !== "undefined") {
+      return 'ontouchstart' in document.documentElement
+    }
   }
 
-  const deviceType = checkTouchDevice() === false ? `no-touchevents` : `touchevents`
+  const deviceType = checkTouchDevice() === false ? "no-touchevents" : "touchevents"
 
   return (
     <Helmet

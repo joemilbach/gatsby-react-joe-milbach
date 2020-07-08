@@ -9,7 +9,7 @@
     "bootstrap": "^5.0.0-alpha1",
     "browserify-css": "0.12.0",
     "gatsby": "^2.23.10",
-    "gatsby-cli": "^2.12.58",
+    "gatsby-cli": "^2.12.59",
     "gatsby-image": "^2.4.8",
     "gatsby-plugin-manifest": "^2.4.13",
     "gatsby-plugin-offline": "^3.2.12",

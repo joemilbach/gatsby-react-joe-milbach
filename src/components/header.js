@@ -8,34 +8,36 @@ export default class Header extends Component {
     super(props)
 
     this.state = {
-      prevScrollpos: window.pageYOffset,
-      shrink: false
-    };
+      prevScrollpos: 0,
+      shrink: false,
+      mobileNavActive: false
+    }
+
+    this.handleClickOutside = this.handleClickOutside.bind(this)
   }
 
   componentDidMount() {
+    this.setState({ prevScrollpos: window.pageYOffset })
     window.addEventListener("scroll", this.fixedHeader)
+    document.addEventListener("mousedown", this.handleClickOutside, false)
   }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.fixedHeader)
+    document.removeEventListener("mousedown", this.handleClickOutside, false)
   }
 
   fixedHeader = () => {
     const scrollTop = window.pageYOffset;
-    const affixHeader = document.getElementById('site-header')
+    const affixHeader = document.getElementById("site-header")
     let affixTop = affixHeader.offsetTop;
 
-    // Firefox bug when at bottom of page
-    if(affixTop < 0) {
-      affixTop = 0;
-    }
+    if(affixTop < 0) affixTop = 0
 
     if(scrollTop > affixTop + 10) {
-      affixHeader.classList.add('shrink');
-
+      affixHeader.classList.add("shrink")
     } else {
-      affixHeader.classList.remove('shrink');
+      affixHeader.classList.remove("shrink")
     }
   }
 
@@ -50,14 +52,20 @@ export default class Header extends Component {
     })
   }
 
+  handleClickOutside = (event) => {
+    if (this.state.mobileNavActive && this.node.contains(event.target)) return
+
+    this.mobileNavClose()
+  }
+
   mobileNavOpen = () => {
-    document.getElementById('site-nav').classList.add('open')
-    document.body.classList.add('nav-open')
+    document.body.classList.add("nav-open")
+    this.setState({ mobileNavActive: true })
   }
 
   mobileNavClose = () => {
-    document.getElementById('site-nav').classList.remove('open')
-    document.body.classList.remove('nav-open')
+    document.body.classList.remove("nav-open")
+    this.setState({ mobileNavActive: false })
   }
 
   render() {
@@ -72,13 +80,14 @@ export default class Header extends Component {
 
           <button id="xs-nav-control" className="d-md-none" type="button" onClick={this.mobileNavOpen} aria-label="Toggle navigation">M<span className="icn-menu"><i></i><i></i><i></i></span>NU</button>
 
-          <div id="site-nav">
-            <Nav as="nav" activeKey="" role="navigation">
+          <div id="site-nav" className={((this.state.mobileNavActive) ? `open` : '')}>
+            <Nav as="nav" ref={node => this.node = node} activeKey="" role="navigation">
               <button type="button" id="xs-nav-close" className="close-btn" onClick={this.mobileNavClose} aria-label="Close navigation">
                 <span>
                   <strong>Close</strong>
                 </span>
               </button>
+              <Nav.Link className="d-md-none" href="/" eventKey="home">Home</Nav.Link>
               <Nav.Link href="/about/" eventKey="about">About</Nav.Link>
               <Nav.Link href="/work/" eventKey="work">Work</Nav.Link>
               <Nav.Link href="/contact/" eventKey="contact">Contact</Nav.Link>
