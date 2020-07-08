@@ -45,7 +45,7 @@ function SEO({ bodyClass, description, lang, meta, title }) {
         class: bodyClass,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s`}
       meta={[
         {
           name: `description`,
@@ -87,7 +87,8 @@ function SEO({ bodyClass, description, lang, meta, title }) {
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
-  description: ``,
+  title: null,
+  description: null,
 }
 
 SEO.propTypes = {

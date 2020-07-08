@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container"
 const WorkPage = () => (
   <>
     <Layout>
-      <SEO title="Work" bodyClass="sub work" />
+      <SEO title="Joe Milbach's Work" description="See some of the work that I have done." bodyClass="sub work" />
 
       <Container as="main" id="site-main" fluid role="main">
         <section className="main-content pt-ms-2 pt-lg-4">

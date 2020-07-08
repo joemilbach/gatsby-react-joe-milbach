@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Custom Gatsby Starter with React Bootstrap`,
-    description: ``,
+    title: `Joe Milbach Web Developer/Designer`,
+    description: `Hello. As a Web Developer / Designer, I work on projects ranging from websites to web applications. I love taking an idea and giving it life on the web. My web designs are user-centric and focus on utilizing the latest technology.`,
     author: `Joe Milbach`,
   },
   plugins: [

@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container"
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="404: Not found" bodyClass="sub contact" />
+    <SEO title="Oh No Page Not Found" bodyClass="sub contact" />
     <Container as="section" fluid className="mt-4">
       <h1>Page Not Found</h1>
       <p>Looks like the page you are looking for is not here anymore or you typed in the wrong URL. Use the navigation or the information below to get a hold of me.</p>

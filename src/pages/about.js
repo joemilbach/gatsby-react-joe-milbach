@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col"
 
 const AboutPage = () => (
   <Layout page="about">
-    <SEO title="About" bodyClass="sub about" />
+    <SEO title="About Joe Milbach" description="Read a little bit about me and what I do." bodyClass="sub about" />
 
     <Container id="site-main" as="main" fluid="lg" role="main">
       <Row>
