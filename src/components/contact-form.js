@@ -13,6 +13,7 @@ class ContactForm  extends Component {
       name: '',
       email: '',
       message: '',
+      honeypot: '',
       emailSent: null,
       emailError: null
     }
@@ -35,7 +36,7 @@ class ContactForm  extends Component {
       event.preventDefault()
 
       const apiBase = "http://joemilbach.com/api.php"
-      let apiQuery = `${apiBase}?email=${this.state.email}&message=${this.state.message}&name=${this.state.name}`
+      let apiQuery = `${apiBase}?email=${this.state.email}&message=${this.state.message}&name=${this.state.name}&honeypot=${this.state.honeypot}`
 
       fetch(apiQuery)
       .then(response => response.json())
@@ -46,6 +47,7 @@ class ContactForm  extends Component {
             name: '',
             email: '',
             message: '',
+            honeypot: '',
             emailSent: results.sent,
             emailError: null
           })
@@ -61,7 +63,7 @@ class ContactForm  extends Component {
   }
 
   render() {
-    const {validated, name, email, message, emailSent, emailError} = this.state;
+    const {validated, name, email, message, honeypot, emailSent, emailError} = this.state;
 	  return(
       <>
       {emailSent &&
@@ -90,7 +92,7 @@ class ContactForm  extends Component {
 
         <Form.Group as={Col} lg="6" controlId="formSubject" className="col-12 visible d-none">
           <Form.Label>Subject</Form.Label>
-          <Form.Control type="text" />
+          <Form.Control type="text" value={honeypot} onChange={this.handleCHange('honeypot')} />
         </Form.Group>
 
         <Form.Group controlId="formMessage" className="col-12 mb-4">
