@@ -15,7 +15,7 @@ const AboutPage = () => (
           <h1>Little About Me</h1>
           <p>I am a web designer and developer from Cedar Rapids, IA. I am experienced with websites, web apps and mobile apps. I keep my code neat and love finding ways to optimize my projects. I work best with a team but am self motivated if I need to go it alone. I am always willing to jump in and learn new things.</p>
           <h2>What I know</h2>
-          <p>I have worked with many different CMS's from Wordpress and Hubspot to ones that are home grown. My current toolset I use are PHP, JavaScript, jQuery, SCSS / SASS and many others I use to bring ideas to life.</p>
+          <p>I have worked with many different CMS's from Wordpress and Hubspot to home grown ones. My current toolset I use are PHP, JavaScript, jQuery, SCSS / SASS and many others I use to bring ideas to life.</p>
         </Col>
       </Row>
     </Container>

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="http://joemilbach.com/images/icn/icon-64x64.png" width="64"><br/>
+  <img src="http://joemilbach.com/assets/icon-512x512.png" width="64"><br/>
 </p>
 <h1 align="center">JoeMilbach.com</h1>
 
