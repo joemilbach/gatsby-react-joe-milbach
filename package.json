@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Joe Milbach <joemilbach@gmail.com>",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap": "^5.0.0-alpha1",
     "browserify-css": "0.12.0",
     "gatsby": "^2.23.10",
